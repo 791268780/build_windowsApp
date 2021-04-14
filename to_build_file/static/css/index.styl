@@ -1,0 +1,113 @@
+	$pagewidth = 750 // 屏幕宽度配置  px
+		
+	v(width)
+		return (width / ($pagewidth/100))vw
+		
+	$nav = v(50)  // 导航栏高度配置	
+	
+	$title = v(77) // 头部返回标高度配置
+	
+	
+	.p-24
+		padding-left v(24)
+		padding-right v(24)
+
+	.flex-colum    // 改变主轴方向
+		flex-direction column
+	
+	.flex-wrap   // flex自动换行
+		flex-wrap wrap
+			
+			
+	.flex-center  //flex 居中     //align-items  flex-start   总是靠顶部对齐
+		display flex
+		justify-content  center
+		align-items center
+		@extend  .flex-wrap
+		
+	.flex-space-around  //flex 均匀分布
+		display flex
+		justify-content  space-around
+		align-items center
+		@extend  .flex-wrap
+		
+	.flex-space-between //flex 靠边分布
+		display flex
+		justify-content  space-between
+		align-items center
+		@extend  .flex-wrap
+	
+	.flex-space-right 
+		display flex
+		flex-direction row-reverse
+		align-items center
+		@extend  .flex-wrap
+	.flex-top
+		align-items  flex-start		
+	.position-bottom   // 固定在底部
+		position fixed
+		bottom 0
+		left 0
+		
+	.font-list
+		font-family Source Han Sans CN
+		font-weight Normal
+	
+	.font-style-bold
+		font-family SourceHanSansCN-Bold
+		font-weight Bold
+	
+	.font-style-Regular
+		font-family DIN-Regular
+		font-weight Regular
+		
+	.font-style-std
+		font-family Adobe Heiti Std
+		font-weight normal
+	
+	.font-style-yahe
+		font-family Microsoft YaHei
+		font-weight 400
+		
+	.d-box      //	-webkit-line-clamp: 3;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		
+	.scroll  // 楼层滚动
+		overflow-x: hidden
+		overflow-y: scroll
+		
+	.bg-issues
+		background-size 100% 100% 
+		background-repeat no-repeat 
+	
+	/deep/.u-loading-flower
+		position absolute !important
+		top v(50) !important
+		left 0 !important
+		// bottom 0 !important
+		right 0 !important
+		margin auto !important
+		
+	
+	/deep/.uni-picker-container .uni-picker-content
+		height 400px !important	
+	
+	view,text
+		@extend .font-list
+	
+	/deep/.uni-scroll-view::-webkit-scrollbar // ios scroll-view  隐藏滚动条
+		display none
+	
+	view::-webkit-scrollbar  // 清除溢出滚动条
+		display none
+		
+	
+	
+	//设置  uview   全屏选项卡  tab  的高度
+	// /deep/.u-tabs-scorll-flex,/deep/.u-tabs-item
+	// 	height v(90) !important
+	// /deep/.u-tabs
+	// 	height v(90) !important	
