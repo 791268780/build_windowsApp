@@ -1,11 +1,46 @@
 {
-    "name"    : "windows",
-	"version" : "0.1.0",
-	"main"    : "main.js",
-	"scripts":{
-		"build": "electron-packager . app --win --out Appwindows --arch=x64 --electron-version 1.4.14 --overwrite --ignore=node_modules"
+	"name": "windows",
+	"version": "0.1.0",
+	"main": "main.js",
+	"license": "ISC",
+	"scripts": {
+		"start": "electron .",
+		"pack":"electron-builder --dir",
+		"build":"electron-builder" // 只能使用npm启动  ？？
+	},
+	"build":{
+	    "appId":"com.azimiao.test",
+	    "asar":true,
+	    "afterPack":"./afterPack.js",
+	    "directories":{
+	        "buildResources":"build",
+	        "output":"dist"
+	    },
+	    "win":{
+	        "target": [{
+	            "target":"nsis"
+	        }],
+	        "icon":"./icon/1.png",
+	        "asarUnpack":[
+	            "src/**",
+	            "README.md"
+	        ]
+	    },
+	    "nsis":{
+	        "oneClick":false,
+	        "allowElevation":true,
+	        "allowToChangeInstallationDirectory":true,
+	        "installerIcon":"./icon/1.png",
+	        "uninstallerIcon":"./icon/1.png",
+	        "createDesktopShortcut": true,
+	        "createStartMenuShortcut": true
+	    }
 	},
 	"dependencies": {
 		"electron-packager": "^15.2.0"
+	},
+	"devDependencies": {
+		"electron": "^9.0.0",
+		"electron-builder": "^22.10.5"
 	}
 }
